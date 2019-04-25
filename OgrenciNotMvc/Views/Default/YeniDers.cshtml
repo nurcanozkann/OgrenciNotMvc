@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "YeniDers";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>Ders Adı</label>
+        <input type="text" class="form-control" name="DersAd" />
+        @Html.ValidationMessage("DersAd","",new {@class="text-danger" })
+    </div>
+    <div style="margin-top:10px">
+        <button class="btn btn-info" type="submit">Kaydet</button>
+    </div>
+</form>

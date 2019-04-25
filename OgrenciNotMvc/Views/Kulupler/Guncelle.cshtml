@@ -1,0 +1,24 @@
+﻿@model OgrenciNotMvc.Models.Entity_Framework.TBLKULUP
+@{
+                /**/
+
+                ViewBag.Title = "Guncelle";
+}
+
+<h2>Kulüp Güncelleme Sayfası</h2>
+
+
+@using (Html.BeginForm("Guncelle", "Kulupler", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Kulüp Adı</label>
+        @*@Html.DropDownListFor(m=>m.KulupAd,(List<SelectListItem>)ViewBag.kulup,new { @class="form-control"})*@
+        @Html.TextBoxFor(m => m.KulupAd, new { @class = "form-control" })
+    </div>
+    //Ön tarafta saklar ama arka tarafta kullanılır.
+    @Html.HiddenFor(m=>m.KulupId);
+    <div>
+        <button class="btn btn-info" type="submit">Güncelle</button>
+    </div>
+}
+

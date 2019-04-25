@@ -1,0 +1,41 @@
+﻿@model OgrenciNotMvc.Models.Entity_Framework.TBLOGRENCİ
+@{
+    ViewBag.Title = "Guncelle";
+}
+
+<h2>Öğrenci Güncelleme Sayfası</h2>
+
+
+@using (Html.BeginForm("Guncelle", "Ogrenciler", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.OgrId)
+    <div class="form-group">
+        <label>Adı</label>
+        @Html.TextBoxFor(m => m.OgrAd, new { @class = "form-control" })
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Soyadı</label>
+        @Html.TextBoxFor(m => m.OgrSoyad, new { @class = "form-control" })
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Cinsiyet</label>
+        @Html.TextBoxFor(m => m.OgrCinsiyet, new { @class = "form-control" })
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Kulüp</label>
+        @*@Html.TextBoxFor(m => m.OgrKulup, new { @class = "form-control" })*@
+        @Html.DropDownListFor(m => m.OgrKulup, (List<SelectListItem>)ViewBag.kulup, new { @class = "form-control" })
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Fotoğraf</label>
+        @Html.TextBoxFor(m => m.OgrFotograf, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <button class="btn btn-info" type="submit">Güncelle</button>
+    </div>
+}

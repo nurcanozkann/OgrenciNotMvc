@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "YeniSinav";
+}
+
+<form class="form-group" method="post">
+
+    <div>
+        <label>Öğrenci Id</label>
+        <input type="text" name="OgrId" class="form-control" />
+        @Html.ValidationMessage("OgrId", "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <div>
+        <label>Ders Id</label>
+        <input name="DersId" type="text" class="form-control" />
+        @Html.ValidationMessage("DersId", "", new { @class = "text-danger" })
+    </div><br />
+    <div>
+        <label>Sınav 1</label>
+        <input class="form-control" type="text" name="Sinav1" />
+        @Html.ValidationMessage("Sinav1", "", new { @class = "text-danger" })
+    </div><br />
+    <div>
+        <label>Sınav 2</label>
+        <input class="form-control" type="text" name="Sinav2" />
+        @Html.ValidationMessage("Sinav2", "", new { @class = "text-danger" })
+    </div><br />
+    <div>
+        <label>Sınav 3</label>
+        <input class="form-control" type="text" name="Sinav3" />
+        @Html.ValidationMessage("Sinav3", "", new { @class = "text-danger" })
+    </div><br />
+    <div>
+        <label>Proje</label>
+        <input class="form-control" type="text" name="Proje" />
+        @Html.ValidationMessage("Proje", "", new { @class = "text-danger" })
+    </div><br />
+    <div>
+        <label>Ortalama</label>
+        <input class="form-control" type="text" id="ortalama" name="Ortalama" readonly />
+    </div><br />
+    <div>
+        <label>Durum</label>
+        <input class="form-control" type="text" name="Durum" readonly />
+    </div><br />
+    <div>
+        <button type="submit" class="btn btn-info">Kaydet</button>
+    </div>
+
+</form>
+

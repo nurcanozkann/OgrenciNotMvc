@@ -1,0 +1,19 @@
+﻿@model OgrenciNotMvc.Models.Entity_Framework.TBLDERSLER
+@{
+    ViewBag.Title = "Guncelle";
+}
+
+<h2>Ders Güncelleme Sayfası</h2>
+
+@using (Html.BeginForm("Guncelle", "Default", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Ders Adı</label>
+        @Html.TextBoxFor(m=>m.DersAd,new {@class="form-control"})
+    </div>
+    @Html.HiddenFor(m=>m.DersId);
+    <div>
+        <button class="btn btn-info" type="submit">Güncelle</button>
+    </div>
+}
+

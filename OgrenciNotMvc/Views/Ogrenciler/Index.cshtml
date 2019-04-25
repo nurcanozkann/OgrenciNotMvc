@@ -1,0 +1,79 @@
+﻿@using OgrenciNotMvc.Models.Entity_Framework
+@model List<TBLOGRENCİ>
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Öğrenci Id</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>Cinsiyeti</th>
+            <th>Kulübü</th>
+            <th>Fotoğraf</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ogr in Model)
+        {
+            <tr>
+                <td>@ogr.OgrId</td>
+                <td>@ogr.OgrAd</td>
+                <td>@ogr.OgrSoyad</td>
+                <td>@ogr.OgrCinsiyet</td>
+                <td>@ogr.TBLKULUP.KulupAd</td>
+                <td>@ogr.OgrFotograf</td>
+                <td>
+                    @*<a href="/Ogrenciler/Sil/@ogr.OgrId" class="btn btn-danger">Sil</a>*@
+                    <a id="silinecek" class="btn btn-danger silinecek" data-target="#basic" data-toggle="modal"
+                       data-path="@Url.Action("Sil","Ogrenciler", new { id = ogr.OgrId })">Sil</a>
+                    <a href="/Ogrenciler/Guncelle/@ogr.OgrId" class="btn btn-success">Güncelle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Ogrenciler/YeniOgrenci" class="btn btn-primary">Yeni Öğrenci Ekle</a>
+
+
+
+<div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Silmeyi Onayla</h4>
+            </div>
+            <div class="modal-body">
+                Bu öğeyi silmek istediğinize emin misiniz?
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" type="button" class="btn btn-default">Kapat</button>
+                <button id="btnSil" type="button" class="btn btn-primary">Sil</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var path_to_delete;
+
+            $(".silinecek").click(function (e) {
+                debugger;
+                path_to_delete = $(this).attr('data-path');
+            });
+
+            $('#btnSil').click(function () {
+                debugger;
+                window.location = path_to_delete;
+            });
+
+    });
+    </script>
